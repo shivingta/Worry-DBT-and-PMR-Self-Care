@@ -1,0 +1,6 @@
+{
+  "name": "Mannkaa - CBT Thought & Mood Diary",
+  "description": "A Cognitive Behavioral Therapy (CBT) Thought & Mood Diary prototype featuring interactive mood check-ins, guided thought challenging records, cognitive distortion identification, and recharts 7-day mood trend visualization.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

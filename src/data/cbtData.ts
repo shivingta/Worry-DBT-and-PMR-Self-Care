@@ -1,0 +1,198 @@
+/**
+ * @license
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+import { CognitiveDistortionInfo, ThoughtRecord } from '../types';
+
+export const COGNITIVE_DISTORTIONS: CognitiveDistortionInfo[] = [
+  {
+    id: 'all-or-nothing',
+    name: 'All-or-Nothing Thinking',
+    shortDefinition: 'Viewing situations in polarized black-and-white categories.',
+    fullDescription: 'If a situation falls short of perfect, you see it as a total failure. Nuance and middle ground are ignored.',
+    example: '"If I stumble on one question in the interview, the entire conversation is ruined."',
+    counterQuestion: 'Is there a middle ground or a continuum of success between 0% and 100%?',
+    category: 'Judging',
+    color: 'border-amber-400 bg-amber-500/10 text-amber-300',
+  },
+  {
+    id: 'catastrophizing',
+    name: 'Catastrophizing & Fortune Telling',
+    shortDefinition: 'Anticipating the worst-case disaster as an inevitable reality.',
+    fullDescription: 'Predicting a catastrophic future outcome without considering more realistic, probable trajectories.',
+    example: '"My professor hasn\'t responded in 3 hours; I will definitely fail the semester and lose my stipend."',
+    counterQuestion: 'What is the most probable outcome, and how have I navigated difficult challenges before?',
+    category: 'Magnifying',
+    color: 'border-rose-400 bg-rose-500/10 text-rose-300',
+  },
+  {
+    id: 'mind-reading',
+    name: 'Mind Reading',
+    shortDefinition: 'Assuming you know others are judging or evaluating you negatively.',
+    fullDescription: 'Arbitrarily concluding that someone is reacting negatively without checking or having verifiable factual proof.',
+    example: '"She glanced at her watch during my update; she must think I am incompetent."',
+    counterQuestion: 'Do I have factual proof of their thoughts, or could they just be tired, busy, or distracted?',
+    category: 'Assuming',
+    color: 'border-purple-400 bg-purple-500/10 text-purple-300',
+  },
+  {
+    id: 'emotional-reasoning',
+    name: 'Emotional Reasoning',
+    shortDefinition: 'Treating unpleasant feelings as factual evidence about reality.',
+    fullDescription: 'Believing that because you feel inadequate, guilty, or hopeless, things must objectively be that way ("I feel it, so it must be true").',
+    example: '"I feel like an imposter today, so everyone will inevitably expose me as having no merit."',
+    counterQuestion: 'Are feelings facts? What does objective historical evidence show about my skills and efforts?',
+    category: 'Assuming',
+    color: 'border-blue-400 bg-blue-500/10 text-blue-300',
+  },
+  {
+    id: 'mental-filter',
+    name: 'Mental Filter',
+    shortDefinition: 'Fixating exclusively on a single negative detail while filtering out everything else.',
+    fullDescription: 'Dwelling on one perceived flaw or critique so that your entire vision of reality becomes colored by it.',
+    example: '"I received four compliments on the project, but one small revision means the work was a failure."',
+    counterQuestion: 'Am I looking through a magnifying glass at one smudge while ignoring the full canvas?',
+    category: 'Filtering',
+    color: 'border-cyan-400 bg-cyan-500/10 text-cyan-300',
+  },
+  {
+    id: 'disqualifying-positive',
+    name: 'Disqualifying the Positive',
+    shortDefinition: 'Rejecting positive experiences by insisting they "don\'t count".',
+    fullDescription: 'Transforming neutral or positive events into negatives by claiming luck, politeness, or an accident.',
+    example: '"They only selected my proposal because they had no other submissions."',
+    counterQuestion: 'If someone I respected achieved this, would I dismiss their effort or acknowledge their competence?',
+    category: 'Filtering',
+    color: 'border-teal-400 bg-teal-500/10 text-teal-300',
+  },
+  {
+    id: 'should-statements',
+    name: 'Should & Must Statements',
+    shortDefinition: 'Pressuring yourself or others with rigid, punitive expectations.',
+    fullDescription: 'Using "should", "must", and "ought" creates guilt, shame, and frustration when reality naturally varies.',
+    example: '"I should never feel nervous before a viva; I must always be completely unflappable."',
+    counterQuestion: 'Can I replace "I must" with "I would prefer to", and allow space for normal human experience?',
+    category: 'Judging',
+    color: 'border-indigo-400 bg-indigo-500/10 text-indigo-300',
+  },
+  {
+    id: 'overgeneralization',
+    name: 'Overgeneralization',
+    shortDefinition: 'Viewing an isolated negative event as a never-ending cycle of defeat.',
+    fullDescription: 'Using words like "always", "never", "everyone", or "nobody" based on one single incident.',
+    example: '"I got nervous answering that question. I always choke in high-stakes moments."',
+    counterQuestion: 'Has there ever been an occasion where this did not happen? What are the factual exceptions?',
+    category: 'Magnifying',
+    color: 'border-orange-400 bg-orange-500/10 text-orange-300',
+  },
+  {
+    id: 'labeling',
+    name: 'Labeling & Mislabeling',
+    shortDefinition: 'Attaching a global, punitive identity label to yourself or others.',
+    fullDescription: 'Instead of describing a specific action ("I made an error on slide 3"), you attach an absolute label ("I am a failure").',
+    example: '"I didn\'t solve that problem set on time. I am fundamentally stupid."',
+    counterQuestion: 'Can I separate a specific behavioral outcome from my core worth as a human being?',
+    category: 'Judging',
+    color: 'border-pink-400 bg-pink-500/10 text-pink-300',
+  },
+  {
+    id: 'personalization',
+    name: 'Personalization & Blame',
+    shortDefinition: 'Holding yourself personally accountable for events outside your control.',
+    fullDescription: 'Believing you are the sole cause of an external negative outcome when multiple external variables were present.',
+    example: '"My project partner seemed irritable today; it must be because I asked too many questions yesterday."',
+    counterQuestion: 'What other external factors, pressures, or contexts could explain their reaction?',
+    category: 'Assuming',
+    color: 'border-emerald-400 bg-emerald-500/10 text-emerald-300',
+  },
+];
+
+export const EMOTIONS = [
+  { name: 'Anxious', color: 'bg-amber-950/60 text-amber-300 border-amber-600/50', dot: 'bg-amber-400' },
+  { name: 'Overwhelmed', color: 'bg-rose-950/60 text-rose-300 border-rose-600/50', dot: 'bg-rose-400' },
+  { name: 'Self-Critical', color: 'bg-purple-950/60 text-purple-300 border-purple-600/50', dot: 'bg-purple-400' },
+  { name: 'Catastrophic', color: 'bg-red-950/60 text-red-300 border-red-600/50', dot: 'bg-red-400' },
+  { name: 'Sad', color: 'bg-blue-950/60 text-blue-300 border-blue-600/50', dot: 'bg-blue-400' },
+  { name: 'Frustrated', color: 'bg-orange-950/60 text-orange-300 border-orange-600/50', dot: 'bg-orange-400' },
+  { name: 'Guilty', color: 'bg-zinc-800 text-zinc-300 border-zinc-600', dot: 'bg-zinc-400' },
+  { name: 'Neutral', color: 'bg-[#002233] text-[#93c5d6] border-[#003d58]', dot: 'bg-[#26c6da]' },
+  { name: 'Calm', color: 'bg-emerald-950/60 text-emerald-300 border-emerald-600/50', dot: 'bg-emerald-400' },
+  { name: 'Grounded', color: 'bg-teal-950/60 text-teal-300 border-teal-600/50', dot: 'bg-teal-400' },
+  { name: 'Hopeful', color: 'bg-cyan-950/60 text-cyan-300 border-cyan-600/50', dot: 'bg-cyan-400' },
+  { name: 'Resilient', color: 'bg-indigo-950/60 text-indigo-300 border-indigo-600/50', dot: 'bg-indigo-400' },
+];
+
+export const PHYSICAL_SENSATIONS = [
+  'Chest tightness',
+  'Shallow breathing',
+  'Rapid heartbeat / Palpitations',
+  'Muscle tension in neck/shoulders',
+  'Stomach knots / Nausea',
+  'Restlessness / Shaking hands',
+  'Headache / Pressure behind eyes',
+  'Dry mouth / Lump in throat',
+  'Warm face / Blushing',
+  'Grounded / Breathing settled',
+];
+
+/**
+ * Initial seed records for CBT thought records
+ */
+export const getInitialSeedData = (): { thoughtRecords: ThoughtRecord[] } => {
+  const thoughtRecords: ThoughtRecord[] = [
+    {
+      id: 't-1',
+      timestamp: new Date('2026-11-01T15:30:00').getTime(),
+      date: '2026-11-01',
+      time: '03:30 PM',
+      situation: 'Preparing for project review with department head and mentors.',
+      emotion: 'Anxious',
+      intensity: 85,
+      sensations: ['Chest tightness', 'Rapid heartbeat / Palpitations'],
+      automaticThought: 'If they ask a question I cannot immediately answer, they will think I have no competence and regret backing my work.',
+      belief: 90,
+      distortions: ['catastrophizing', 'all-or-nothing', 'mind-reading'],
+      evidenceFor: 'I had to look up one specific metric during last week\'s informal sync with our lead.',
+      evidenceAgainst: 'I designed this architecture and understand the context deeply. Mentors expect honest boundaries rather than made-up answers. In past reviews, saying "Let me pull the exact logs and share by 5 PM" was respected.',
+      balancedAlternative: 'It is neither possible nor expected to hold every isolated parameter in memory on demand. A thoughtful, confident deferral is standard professional practice, not incompetence.',
+      actionPlan: 'Keep reference metrics on an index card and practice a simple deferral sentence out loud.',
+    },
+    {
+      id: 't-2',
+      timestamp: new Date('2026-11-02T19:45:00').getTime(),
+      date: '2026-11-02',
+      time: '07:45 PM',
+      situation: 'Received brief email reply from advisor saying "Let us discuss revisions on Thursday" without pleasantries.',
+      emotion: 'Self-Critical',
+      intensity: 80,
+      sensations: ['Stomach knots / Nausea', 'Shallow breathing'],
+      automaticThought: 'They are deeply disappointed in my draft. I ruined this relationship and won\'t get my recommendation.',
+      belief: 85,
+      distortions: ['mind-reading', 'catastrophizing', 'emotional-reasoning'],
+      evidenceFor: 'The email was only one line and did not have an exclamation mark or standard greeting.',
+      evidenceAgainst: 'My advisor is currently grading 120 midterms and sent the email at 7:30 PM from mobile. Terse phrasing reflects time poverty, not hostility. They agreed to dedicate time Thursday specifically to collaborate on revisions.',
+      balancedAlternative: 'Brevity in late-evening emails is an indicator of their busy schedule, not a secret verdict on my worth. Setting up time to review revisions means they are actively investing in polishing the manuscript.',
+      actionPlan: 'Group the draft into three clear discussion bullets for Thursday so the conversation is crisp and productive.',
+    },
+    {
+      id: 't-3',
+      timestamp: new Date('2026-11-03T11:15:00').getTime(),
+      date: '2026-11-03',
+      time: '11:15 AM',
+      situation: 'Missed morning 7:00 AM workout after sleeping poorly; woke up with a headache.',
+      emotion: 'Guilty',
+      intensity: 70,
+      sensations: ['Muscle tension in neck/shoulders'],
+      automaticThought: 'I am so undisciplined and lazy. I ruined my entire week\'s momentum.',
+      belief: 75,
+      distortions: ['labeling', 'should-statements', 'all-or-nothing'],
+      evidenceFor: 'I turned off my alarm and went back to sleep for an extra hour.',
+      evidenceAgainst: 'I completed workouts Monday through Friday last week. Resting when experiencing a physical headache and sleep deficit is healthy bodily care, not laziness. Missing one morning session does not erase 80% weekly consistency.',
+      balancedAlternative: 'Resting when my body was genuinely exhausted was a wise choice. One rescheduled workout does not undo my habits. I can do a gentle 15-minute evening stretch instead.',
+      actionPlan: 'Hydrate with water, take a 5-minute walk outside, and schedule an evening mobility stretch.',
+    },
+  ];
+
+  return { thoughtRecords };
+};
